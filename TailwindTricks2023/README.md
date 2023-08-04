@@ -211,7 +211,7 @@ The rendered result will put an ellipsis after 3 lines of text:
 
 The [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) Intellisense extension for your IDE is one of the main reasons why Tailwind is so pleasant to use. It auto-completes the class names for you, shows you the color being used, and explains the details of the class when you hover over it.
 
-![alt text](./)
+![alt text](./extension.gif)
 
 ## Using tailwind-merge
 
