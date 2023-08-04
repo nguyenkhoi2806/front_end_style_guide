@@ -54,6 +54,17 @@ Tailwind is a mobile-first framework, which means that un-prefixed utilities tak
 
 Let’s say we want a grid of images or videos. We want our design to be one column on mobile, and then on larger screens be 2 columns, and on desktop have 3 columns, like so:
 
+```html
+<div class="grid grid-cols-1 gap-10 p-5 sm:grid-cols-2 md:grid-cols-3">
+  <div class="w-full aspect-video bg-cyan-500"></div>
+  <div class="w-full aspect-video bg-cyan-500"></div>
+  <div class="w-full aspect-video bg-cyan-500"></div>
+  <div class="w-full aspect-video bg-cyan-500"></div>
+  <div class="w-full aspect-video bg-cyan-500"></div>
+  <div class="w-full aspect-video bg-cyan-500"></div>
+</div>
+```
+
 ![alt text](./reponsive.gif)
 
 ## Group and peer utility classes
