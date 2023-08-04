@@ -4,7 +4,7 @@
 
 Today i am gona show some tips that I really wish I knew earlier and it doesn't matter if you're a beginner or an advanced Tailwind user there should be something on the list that will improve your development experience so let's get straight into it
 
-### Using Tailwind inside CSS
+## Using Tailwind inside CSS
 
 There are some times where we are forced to use CSS for our styles; for example, when using a third-party library. We can stick with the Tailwind colors by using the @apply directive or the theme function. Let’s have a look at a code example:
 
@@ -22,7 +22,41 @@ There are some times where we are forced to use CSS for our styles; for example,
 }
 ```
 
-### Group and peer utility classes
+## Creating custom classes
+
+We can use the Tailwind configuration file to create our own custom classes. This is very useful if we want to use a specific style in multiple places in our app. So, if we want to add another box shadow class for example, this is what we’d need to do:
+
+```js
+// tailwind.config.js
+
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {
+      boxShadow: {
+        // Note that we can use the theme function in here as well
+        neon: "0 0 5px theme('colors.purple.200'), 0 0 20px theme('colors.purple.700')",
+      },
+    },
+  },
+};
+```
+
+Then we could use it in our code:
+
+```html
+<div class="w-20 h-10 rounded shadow-neon"></div>
+```
+
+## Responsive designs
+
+Tailwind is a mobile-first framework, which means that un-prefixed utilities take effect on all screen sizes, while the prefixed utilities override the styles at the specific breakpoint and above. This helps write your CSS mobile first, as you need to define from small the larger screens.
+
+Let’s say we want a grid of images or videos. We want our design to be one column on mobile, and then on larger screens be 2 columns, and on desktop have 3 columns, like so:
+
+![alt text](./reponsive.gif)
+
+## Group and peer utility classes
 
 Tailwind allows us to change the style of an element based on its state with helper classes such as :hover, :checked, :disabled, :focus, and more (you can find [them all here](https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference)). So it’s easy for us to do something like this:
 
@@ -40,7 +74,7 @@ The result would be the below:
 
 What if we want to change the style based on the state of another element? This is where the `peer` and the `group` utility classes come in handy.
 
-#### Style based on parent state
+### Style based on parent state
 
 For instance, we can change the style of child elements when the parent is hovered by turning the parent into a group and using `group` and `group-hover:` utility classes:
 
@@ -68,7 +102,7 @@ For instance, we can change the style of child elements when the parent is hover
 
 There are more helper classes to modify the child elements and this works for almost every pseudo-class modifier (here’s [the full list](https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-class-reference)).
 
-#### Style based on sibling state
+### Style based on sibling state
 
 The peer class modifier can be used to style an element based on the state of it’s sibling. You can use the peer-{modifier} where {modifier} can be any pseudo-class modifier.
 
@@ -83,7 +117,7 @@ Here’s a simple example:
 
 ![alt-text](./peer_hover.gif)
 
-#### You can name names
+### You can name names
 
 Both with the `group` and `peer` you can give unique names to differentiate groups and peers.
 
@@ -108,7 +142,7 @@ This is done by adding `/{name}` to either helper classes, for example:
 
 ![alt-text](./group-peer.gif)
 
-### First, last, odd, and even
+## First, last, odd, and even
 
 Style an element when it is the first-child or last-child using the first and last modifiers:
 
@@ -149,7 +183,7 @@ You can also style an element when it’s an odd or even child using the odd and
 
 ![alt text](./odd_even.png)
 
-### Truncate your text easily
+## Truncate your text easily
 
 Another nifty utility class is `line-clamp`, which allows you to truncate multiline text by simply adding a number such as `line-clamp-3`:
 
@@ -173,13 +207,13 @@ The rendered result will put an ellipsis after 3 lines of text:
 
 ![alt text](./truncate.png)
 
-### Editor extensions
+## Editor extensions
 
 The [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) Intellisense extension for your IDE is one of the main reasons why Tailwind is so pleasant to use. It auto-completes the class names for you, shows you the color being used, and explains the details of the class when you hover over it.
 
-![asciicast](./video.mp4)
+![alt text](./)
 
-### Using tailwind-merge
+## Using tailwind-merge
 
 A common use case when building components is having some sort of base or default style that can be overridden, by passing a class or a prop.
 
@@ -210,12 +244,12 @@ const Component = () => {
 };
 ```
 
-### Conclusion
+## Conclusion
 
 And that's it! These are just some of the many tips and tricks available to you when using Tailwind CSS. With its wide range of utility classes and responsive design capabilities, the possibilities are endless. So get creative, have fun, and don't be afraid to experiment with new styles and designs. With Tailwind CSS, you can create beautiful and functional websites with ease 🚀
 
-### Link Reference
+## Link Reference
 
-[Dev.to](https://dev.to/builderio/tailwind-css-tips-and-tricks-worth-knowing-1j00)
+[Dev.to](https://dev.to)
 
 [Tailwinds](https://tailwindcss.com/)
